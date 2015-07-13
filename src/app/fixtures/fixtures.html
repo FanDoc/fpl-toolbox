@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Fixtures amount</label>
+        <div class="col-sm-10">
+          <input class="form-control" max="10" min="1" ng-change="fix.addFixturesToTeams()" ng-model="fix.amountOfFixtures" type="number">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Away games are more difficult by</label>
+        <div class="col-sm-10">
+
+        <div class="input-group">
+          <input class="form-control" max="100" min="0" ng-model="fix.addAwayGameDifficulty" type="number">
+          <div class="input-group-addon">%</div>
+        </div>
+      </div>
+      </div>
+    </form>
+  </div>
+
+  <table class="table table-hover">
+    <tr>
+      <th/>
+      <th>Team</th>
+      <th>Points</th>
+      <th>Form</th>
+      <th>Strength</th>
+      <th>Fixtures</th>
+      <th>Fixtures difficulty</th>
+    </tr>
+    <tr ng-repeat="team in fix.teams | orderBy: fix.getFixturesDifficulty:reverse">
+      <td>
+        <span class="clublogo logo{{team.id}}"/>
+      </td>
+      <td>{{ team.name }}</td>
+      <td>{{ team.points }}</td>
+      <td>{{ team.form }}</td>
+      <td>
+        <input class="form-control" max="10" min="0" ng-model="team.strength" style="width: auto" type="number">
+      </td>
+      <td>{{ fix.getFixturesText(team) }}</td>
+      <td>{{ fix.getFixturesDifficulty(team) | number:2 }}</td>
+    </tr>
+  </table>
+</div>
