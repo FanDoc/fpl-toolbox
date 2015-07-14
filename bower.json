@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "fpl-toolbox",
   "version": "0.0.0",
   "dependencies": {
     "angular-ui-router": "~0.2.15",

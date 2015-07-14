@@ -3,5 +3,6 @@ bower_components/
 .sass-cache/
 .idea/
 .tmp/
+.publish/
 dist/
 .editorconfig

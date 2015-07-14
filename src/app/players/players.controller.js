@@ -49,7 +49,7 @@
     pCtrl.resetFilters = resetFilters;
 
     init();
-    
+
     function init() {
       plResource.init(function() {
         pCtrl.players = plResource.players;
@@ -100,7 +100,7 @@
       });
 
       filter();
-    };
+    }
 
   }
 })();
