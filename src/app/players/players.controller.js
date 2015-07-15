@@ -33,7 +33,7 @@
         return p.minutes >= this.minutes;
       },
       positionOnly: function(p) {
-        return p.element_type === this.position;
+        return this.position === 0 || p.element_type === this.position;
       },
       teamOnly: function(p) {
         return !pCtrl.teams || pCtrl.teams[p.team-1].selected;
