@@ -37,7 +37,6 @@
 
         fCtrl.fixtures = plResource.fixtures;
         addFixturesToTeams();
-        updateFixturesDifficulty();
       });
     }
 
@@ -95,6 +94,8 @@
           home: false
         });
       });
+
+      updateFixturesDifficulty();
     }
 
   }
