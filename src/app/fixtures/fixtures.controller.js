@@ -20,7 +20,8 @@
 
     // functions
     fCtrl.getFixturesText = getFixturesText;
-    fCtrl.getFixturesDifficulty = getFixturesDifficulty;
+    //fCtrl.getFixturesDifficulty = getFixturesDifficulty;
+    fCtrl.updateFixturesDifficulty = updateFixturesDifficulty;
     fCtrl.addFixturesToTeams = addFixturesToTeams;
 
     init();
@@ -36,6 +37,7 @@
 
         fCtrl.fixtures = plResource.fixtures;
         addFixturesToTeams();
+        updateFixturesDifficulty();
       });
     }
 
@@ -60,6 +62,12 @@
       });
 
       return difficulty;
+    }
+
+    function updateFixturesDifficulty() {
+      _.each(fCtrl.teams, function(team) {
+        team.fixturesDifficulty = getFixturesDifficulty(team);
+      });
     }
 
     function addFixturesToTeams() {

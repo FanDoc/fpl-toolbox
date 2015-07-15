@@ -12,7 +12,7 @@
         <div class="col-sm-10">
 
         <div class="input-group">
-          <input class="form-control" max="100" min="0" ng-model="fix.addAwayGameDifficulty" type="number">
+          <input class="form-control" max="100" min="0" ng-model="fix.addAwayGameDifficulty" ng-change="fix.updateFixturesDifficulty()" type="number">
           <div class="input-group-addon">%</div>
         </div>
       </div>
@@ -30,7 +30,7 @@
       <th>Fixtures</th>
       <th>Fixtures difficulty</th>
     </tr>
-    <tr ng-repeat="team in fix.teams | orderBy: fix.getFixturesDifficulty:reverse">
+    <tr ng-repeat="team in fix.teams | orderBy: 'fixturesDifficulty'">
       <td>
         <span class="clublogo logo{{team.id}}"/>
       </td>
@@ -38,10 +38,10 @@
       <td>{{ team.points }}</td>
       <td>{{ team.form }}</td>
       <td>
-        <input class="form-control" max="10" min="0" ng-model="team.strength" style="width: auto" type="number">
+        <input class="form-control" max="10" min="0" ng-model="team.strength" ng-blur="fix.updateFixturesDifficulty()" style="width: auto" type="number">
       </td>
       <td>{{ fix.getFixturesText(team) }}</td>
-      <td>{{ fix.getFixturesDifficulty(team) | number:2 }}</td>
+      <td>{{ team.fixturesDifficulty | number:2 }}</td>
     </tr>
   </table>
 </div>
