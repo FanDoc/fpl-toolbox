@@ -77,6 +77,7 @@
       <th col-id="points_per_pound" col-name="Points per pound" sort-th/>
       <th col-id="ppg_per_pound" col-name="Points per game per pound" sort-th/>
       <th col-id="minutes" col-name="Minutes" sort-th/>
+      <th col-id="selected_by_percent" col-name="Selected by %" sort-th/>
     </tr>
     <tr ng-repeat="player in pla.playersToShow | orderBy:pla.orderPredicate:pla.orderReverse">
       <td>
@@ -105,6 +106,9 @@
       </td>
       <td>
         {{ player.minutes }}
+      </td>
+      <td>
+        {{ player.selected_by_percent }}
       </td>
     </tr>
   </table>

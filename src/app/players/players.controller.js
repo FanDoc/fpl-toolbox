@@ -63,6 +63,7 @@
           p.points_per_pound = (p.total_points / p.now_cost) * 10;
           p.ppg_per_pound = (p.points_per_game / p.now_cost) * 10;
           p.cost = p.now_cost / 10;
+          p.selected_by_percent = parseFloat(p.selected_by_percent);
         });
 
         filter(); // apply initial filter
