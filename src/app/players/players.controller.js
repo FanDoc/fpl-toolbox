@@ -22,7 +22,7 @@
       healthy: true,
       position: 1,
       maxCost: 15,
-      minutes: 1000,
+      minutes: 0,
 
       applyOrder: ['positionOnly', 'healthyOnly', 'minutesOnly', 'priceOnly', 'teamOnly'],
 
@@ -64,6 +64,7 @@
           p.ppg_per_pound = (p.points_per_game / p.now_cost) * 10;
           p.cost = p.now_cost / 10;
           p.selected_by_percent = parseFloat(p.selected_by_percent);
+          p.points_per_game = parseFloat(p.points_per_game);
         });
 
         filter(); // apply initial filter
@@ -95,7 +96,7 @@
     function resetFilters() {
       pCtrl.playerFilters.healthy = true;
       pCtrl.playerFilters.maxCost = 15;
-      pCtrl.playerFilters.minutes = 1000;
+      pCtrl.playerFilters.minutes = 0;
       _.forEach(pCtrl.teams, function(t) {
         t.selected = true;
       });
