@@ -57,7 +57,7 @@
               .success(function(data) {
                 service.fixtures = data;
 
-                if(!service.fixtures) {
+                if(!service.fixtures[0]) {
                   alert('Could not load data. Either Premier League or our proxy is having difficulties. Try again later!');
                   cfpLoadingBar.complete();
                   return false;
@@ -71,7 +71,7 @@
                   .success(function(data) {
                     service.table = data.Data;
 
-                    if(!service.table) {
+                    if(!service.table[0]) {
                       alert('Could not load data. Either Premier League or our proxy is having difficulties. Try again later!');
                       cfpLoadingBar.complete();
                       return false;
