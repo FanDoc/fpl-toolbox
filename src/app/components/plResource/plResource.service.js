@@ -56,6 +56,13 @@
             $http.get(api + 'fixtures')
               .success(function(data) {
                 service.fixtures = data;
+
+                if(!service.fixtures) {
+                  alert('Could not load data. Either Premier League or our proxy is having difficulties. Try again later!');
+                  cfpLoadingBar.complete();
+                  return false;
+                }
+
                 cfpLoadingBar.set(0.7);
 
                 var leagueTable = 'http://live.premierleague.com/syndicationdata/competitionId=8/seasonId=2015/matchDayId='+service.gameweek+'/league-table.json';
@@ -63,6 +70,13 @@
                 $http.get(jsonpProxy+leagueTable)
                   .success(function(data) {
                     service.table = data.Data;
+
+                    if(!service.table) {
+                      alert('Could not load data. Either Premier League or our proxy is having difficulties. Try again later!');
+                      cfpLoadingBar.complete();
+                      return false;
+                    }
+
                     cfpLoadingBar.complete();
 
                     callback();
