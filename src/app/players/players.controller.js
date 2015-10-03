@@ -47,6 +47,8 @@
     pCtrl.orderPlayers = orderPlayers;
     pCtrl.filter = filter;
     pCtrl.resetFilters = resetFilters;
+    pCtrl.selectAll = selectAll;
+    pCtrl.selectNone = selectNone;
 
     init();
 
@@ -97,11 +99,21 @@
       pCtrl.playerFilters.healthy = true;
       pCtrl.playerFilters.maxCost = 15;
       pCtrl.playerFilters.minutes = 0;
+      selectAll();
+
+      filter();
+    }
+
+    function selectAll() {
       _.forEach(pCtrl.teams, function(t) {
         t.selected = true;
       });
+    }
 
-      filter();
+    function selectNone() {
+      _.forEach(pCtrl.teams, function(t) {
+        t.selected = false;
+      });
     }
 
   }

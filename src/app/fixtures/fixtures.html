@@ -23,6 +23,18 @@
         </div>
       </div>
       </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Decide fixtures difficulty by</label>
+        <div class="col-sm-10">
+          <select class="form-control" ng-change="fix.updateFixturesDifficulty()" ng-model="fix.matchDifficultyDecider">
+            <option value="points">Opponents league points</option>
+            <option value="strength">Opponents arbitrary strength variable</option>
+            <option value="goalsFor">Goals opponents scored this season (defensive difficulty)</option>
+            <option value="goalsAgainst">Goals opponents conceded this season (offensive difficulty)</option>
+          </select>
+        </div>
+      </div>
     </form>
   </div>
 
@@ -31,7 +43,8 @@
       <th/>
       <th>Team</th>
       <th>Points</th>
-      <th>Form</th>
+      <th>Goals for</th>
+      <th>Goals against</th>
       <th>Strength</th>
       <th>Fixtures</th>
       <th>Fixtures difficulty</th>
@@ -42,7 +55,8 @@
       </td>
       <td>{{ team.name }}</td>
       <td>{{ team.points }}</td>
-      <td>{{ team.form }}</td>
+      <td>{{ team.goalsFor }}</td>
+      <td>{{ team.goalsAgainst }}</td>
       <td>
         <input class="form-control" max="10" min="0" ng-model="team.strength" ng-blur="fix.updateFixturesDifficulty()" style="width: auto" type="number">
       </td>

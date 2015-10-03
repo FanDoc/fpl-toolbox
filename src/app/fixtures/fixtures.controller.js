@@ -16,7 +16,7 @@
 
     fCtrl.addAwayGameDifficulty = 25;
     fCtrl.amountOfFixtures = 6;
-    fCtrl.matchDifficultyDecider = 'strength'; //TODO: points, form
+    fCtrl.matchDifficultyDecider = 'points'; //strength, goalsFor, goalsAgainst
 
     // functions
     fCtrl.getFixturesText = getFixturesText;
@@ -32,6 +32,11 @@
         fCtrl.teams = plResource.teams;
         _.forEach(fCtrl.teams, function(team) {
           team.strength = plResource.teamStrengths[team.short_name.toLowerCase()];
+
+          var teamLeagueTableEntry = _.findWhere(plResource.table, { 'TeamCode': team.short_name.toUpperCase() });
+          team.points = teamLeagueTableEntry.Points;
+          team.goalsFor = teamLeagueTableEntry.GoalFor;
+          team.goalsAgainst = (-1) * teamLeagueTableEntry.GoalAgainst;
         });
         fCtrl.gameweek = plResource.gameweek;
 
