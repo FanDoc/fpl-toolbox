@@ -108,12 +108,16 @@
       _.forEach(pCtrl.teams, function(t) {
         t.selected = true;
       });
+
+      filter();
     }
 
     function selectNone() {
       _.forEach(pCtrl.teams, function(t) {
         t.selected = false;
       });
+
+      filter();
     }
 
   }
