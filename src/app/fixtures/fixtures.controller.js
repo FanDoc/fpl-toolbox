@@ -60,8 +60,10 @@
 
       _.each(team.fixtures, function(match) {
         difficulty += fCtrl.teams[match.id - 1][fCtrl.matchDifficultyDecider];
-        if (!match.home) {
+        if (!match.home && fCtrl.addAwayGameDifficulty != 'goalsAgainst') {
           difficulty += fCtrl.teams[match.id - 1][fCtrl.matchDifficultyDecider] * fCtrl.addAwayGameDifficulty / 100;
+        } else if(match.home && fCtrl.addAwayGameDifficulty == 'goalsAgainst') {
+          difficulty += fCtrl.teams[match.id - 1]['goalsAgainst'] * fCtrl.addAwayGameDifficulty / 100;
         }
       });
 
