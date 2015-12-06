@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function plResource($log, $http, cfpLoadingBar) {
-    var jsonpProxy = 'https://jsonp.afeld.me/?url=';
+    var jsonpProxy = 'http://jsonp.afeld.me/?url=';
     var api = jsonpProxy + 'http://m.fantasy.premierleague.com/drf/';
 
     var service = {
